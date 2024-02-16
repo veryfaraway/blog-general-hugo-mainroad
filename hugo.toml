@@ -1,0 +1,72 @@
+baseURL = 'https://mustardseed.eone.one/'
+languageCode = 'ko'
+#languageCode = 'en-us'
+title = '겨자씨'
+theme = "mainroad"
+
+paginate = "5" # Number of posts per page
+copyright = "&copy;{year}, All Rights Reserved"
+
+# Enable comments by entering your Disqus shortname
+disqusShortname = "" 
+
+# Enable Google Analytics by entering your tracking id
+googleAnalytics = "G-Z320PYZ29Q" 
+
+enableRobotsTXT = true
+enableEmoji = true
+
+[permalinks]
+  posts = '/:section/:year/:yearday/:slug/'
+  page = '/:section/:slug/'
+
+[Params]
+  # Description of your site
+  description = "믿음을 가지세요" 
+  opengraph = true
+  twitter_cards = false
+  # Show "Read more" button in list if true
+  readmore = false 
+  authorbox = true
+  toc = true # Enable Table of Contents
+  pager = true
+  # Order of post meta information
+  post_meta = ["date", "categories"] 
+  mainSections = ["post", "docs"]
+  dateformat = "2006-01-02" # Change the format of dates
+  mathjax = true # Enable MathJax
+  mathjaxPath = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js" # Specify MathJax path
+  mathjaxConfig = "TeX-AMS-MML_HTMLorMML" # Specify MathJax config
+  googleFontsLink = "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" # Load Google Fonts
+
+
+[Params.Author]
+  name = "야근반장"
+  bio = "이직 후 첫날 해야할 일 - 다음 이직 준비"
+  avatar = "img/avatar.jpg"
+
+[Params.logo]
+  #image = "/img/logo-tree.svg"
+  image = "/img/logo.svg"
+  title = "겨자씨"
+  subtitle = "너희가 만일 믿음이 한 겨자씨만큼만 있으면 ... 너희가 못할 것이 없으리라"
+
+[Params.thumbnail]
+  # list, post
+  visibility = ["list", "post"]
+
+[Params.sidebar]
+  home = "right"   # Configure layout for home page
+  list = "right"   # Configure layout for list pages
+  single = "right" # Configure layout for single pages
+  # Enable widgets in given order ex) search, ddg-search, recent, categories, taglist, social, languages
+  widgets = ["search", "recent", "categories", "taglist"]
+
+[Params.widgets]
+  recent_num = 5 # Set the number of articles in the "Recent articles" widget
+  tags_counter = false # Enable counter for each tag in "Tags" widget (disabled by default)
+
+[sitemap]
+  changefreq = 'monthly'
+  filename = 'sitemap.xml'
+  priority = 0.5
