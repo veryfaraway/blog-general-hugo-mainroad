@@ -5,7 +5,7 @@ date = 2022-07-12
 draft = false
 thumbnail = 'https://images.unsplash.com/photo-1600783246032-1056431c253c?q=80&w=3948&auto=format&fit=crop&ixlib=rb-4.0.3'
 categories = [ 'Christian' ]
-tags = ['예화']
+tags = ['말씀']
 +++
 
 * 위험에 처했을 땐 시편 91편으로 가세요 

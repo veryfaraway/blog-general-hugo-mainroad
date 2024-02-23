@@ -5,7 +5,7 @@ date = 2022-07-09
 draft = false
 thumbnail = 'https://images.unsplash.com/photo-1535450535339-38bd424a6d38?q=80&w=3165&auto=format&fit=crop&ixlib=rb-4.0.3'
 categories = [ 'Christian' ]
-tags = ['예화']
+tags = ['말씀']
 +++
 
 The next time you feel like God can't use you, remember the following people:
