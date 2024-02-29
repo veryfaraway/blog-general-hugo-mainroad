@@ -1,9 +1,6 @@
 server:
 	hugo server -D
 
-dev:
-	npm run dev
-
 update: update_submodule update_mod
 
 update_submodule:

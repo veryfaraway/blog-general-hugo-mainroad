@@ -1,12 +1,17 @@
-+++
-title = '할로윈의 밤'
-slug = 'halloween'
-date = 2022-08-01
-draft = false
-thumbnail = 'https://images.unsplash.com/photo-1638978214582-f2bd3357b970?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3'
-categories = [ 'Christian' ]
-tags = ['말씀']
-+++
+---
+layout: post 
+title: "할로윈의 밤"
+slug: halloween
+description: "고금리 시대 목돈 굴리기"
+date: 2022-08-01
+author: "야근반장"
+thumbnail: "https://images.unsplash.com/photo-1638978214582-f2bd3357b970?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3"
+categories:
+    - "Christian"
+tags:
+    - 말씀
+---
+
 
 선교 역사가 길지 않은 우리나라에서 기독교의 전통을 대중에게 친숙하게 만드는 일은 쉽지 않다. 하지만 엉뚱한 풍속이 신앙전통과 문화를 어지럽히는 것은 경계해야 한다. 대표적인 것이 할로윈의 밤이다. 
 

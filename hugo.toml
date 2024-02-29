@@ -1,4 +1,6 @@
 baseURL = 'https://mustardseed.eone.one/'
+relativeURLs = true
+
 languageCode = 'ko'
 #languageCode = 'en-us'
 title = '겨자씨'
@@ -17,7 +19,7 @@ enableRobotsTXT = true
 enableEmoji = true
 
 [permalinks]
-  posts = '/:section/:year/:yearday/:slug/'
+  post = '/:section/:year/:yearday/:slug/'
   page = '/:section/:slug/'
 
 [Params]
