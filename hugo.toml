@@ -9,11 +9,14 @@ theme = "mainroad"
 paginate = 5 # Number of posts per page
 copyright = "&copy;{year}, All Rights Reserved"
 
-# Enable comments by entering your Disqus shortname
-disqusShortname = "" 
+disqusShortname = "gyeojassi" # DEPRECATED! Use .Services.Disqus.Shortname
+googleAnalytics = "G-Z320PYZ29Q" # DEPRECATED! Use .Services.googleAnalytics.ID
 
-# Enable Google Analytics by entering your tracking id
-googleAnalytics = "G-Z320PYZ29Q" 
+[services]
+  [services.disqus]
+    shortname = "gyeojassi" # Enable Disqus by entering your Disqus shortname
+  [services.googleAnalytics]
+    ID = "G-Z320PYZ29Q" # Enable Google Analytics by entering your tracking ID
 
 enableRobotsTXT = true
 enableEmoji = true
@@ -30,6 +33,7 @@ enableEmoji = true
   # Show "Read more" button in list if true
   readmore = false 
   authorbox = true
+  comments = true # Enable Disqus comments for specific page
   toc = true # Enable Table of Contents
   pager = true
   # Order of post meta information
