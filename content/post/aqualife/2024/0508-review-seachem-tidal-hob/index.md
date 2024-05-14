@@ -4,7 +4,7 @@ description = 'Seachem Tidal 걸이식 여과기 리뷰'
 thumbnail = "https://images.unsplash.com/photo-1519657635301-68bb60c798f7?q=80&w=2930&auto=format&fit=crop&ixlib=rb-4.0.3"
 slug = 'review-seachem-tidal-hob'
 date = 2024-05-08T20:54:58+09:00
-draft = true
+draft = false
 categories = ['물생활']
 tags = ['여과기', '걸이식 여과기']
 +++
