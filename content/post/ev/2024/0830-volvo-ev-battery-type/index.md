@@ -11,8 +11,7 @@ tags = ['전기차', '배터리']
 
 요즘 화재 이슈로 자동차 제조사들이 배터리 정보를 제공해 주고 있는데요, 볼보도 해당 정보를 발표했습니다.
 
-![EV Battery](./battery-manufactory.png)
-
 궁금하셨던 분들 참고하세요.
 
+![EV Battery](./battery-manufactory.png)
 
