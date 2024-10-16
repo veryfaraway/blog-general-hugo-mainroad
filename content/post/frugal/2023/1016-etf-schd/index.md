@@ -5,7 +5,7 @@ draft = false
 slug = 'etf-overview-schd'
 description = "미국 ETF SCHD에 대해서 설명합니다."
 thumbnail = "https://www.thestreet.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cg_faces:center%2Cq_auto:good%2Cw_768/MjA2NTcxMjg5NTc2NDgyNTEw/ig_header-image_schd.png"
-categories = ['자린고비']
+categories = ['스노볼']
 tags = ['ETF', 'SCHD']
 +++
 

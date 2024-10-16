@@ -5,7 +5,7 @@ draft = false
 slug = 'etf-schd-update-2024'
 description = "2024년 SCHD ETF 구성종목 변화에 대해서 설명합니다."
 thumbnail = "https://images.unsplash.com/photo-1598863505577-74750d3b4475?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3"
-categories = ['자린고비']
+categories = ['스노볼']
 tags = ['ETF', 'SCHD']
 +++
 

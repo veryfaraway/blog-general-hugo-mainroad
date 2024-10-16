@@ -5,7 +5,7 @@ slug = 'stock-analysis-terms'
 description = "주식 분석에 유용한 몇 가지 핵심 용어와 그 의미를 설명합니다."
 thumbnail = "https://images.unsplash.com/photo-1616261167032-b16d2df8333b?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3"
 draft = false
-categories = ['자린고비']
+categories = ['스노볼']
 tags = ['주식용어']
 +++
 

@@ -8,6 +8,7 @@ theme = "mainroad"
 
 paginate = 5 # Number of posts per page
 copyright = "&copy;{year}, All Rights Reserved"
+summaryLength = 2
 
 disqusShortname = "gyeojassi" # DEPRECATED! Use .Services.Disqus.Shortname
 googleAnalytics = "G-Z320PYZ29Q" # DEPRECATED! Use .Services.googleAnalytics.ID
@@ -28,14 +29,16 @@ enableEmoji = true
 [Params]
   # Description of your site
   description = "믿음을 가지세요" 
-  opengraph = true
+  copyright = "eOne" # Footer copyright holder, otherwise will use site title
+  opengraph = true # Enable OpenGraph if true
+  schema = true # Enable Schema
   twitter_cards = false
   # Show "Read more" button in list if true
   readmore = false 
-  authorbox = true
+  authorbox = false
   comments = true # Enable Disqus comments for specific page
   toc = true # Enable Table of Contents
-  pager = true
+  pager = true # Show pager navigation (prev/next links) at the bottom of pages if true
   # Order of post meta information
   post_meta = ["date", "categories"] 
   mainSections = ["post", "docs"]

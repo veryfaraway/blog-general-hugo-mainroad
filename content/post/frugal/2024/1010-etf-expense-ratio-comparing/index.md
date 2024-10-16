@@ -5,7 +5,7 @@ description = "S&P500 / 나스닥100 / 미국배당다우존스 국내 ETF 수�
 date = 2024-10-10T03:32:14+09:00
 thumbnail = "https://images.unsplash.com/photo-1639754390580-2e7437267698?q=80&w=3841&auto=format&fit=crop&ixlib=rb-4.0.3"
 draft = false
-categories = ['자린고비']
+categories = ['스노볼']
 tags = ['ETF', '수수료']
 +++
 
