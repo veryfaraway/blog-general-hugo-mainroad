@@ -6,7 +6,9 @@ languageCode = 'ko'
 title = '겨자씨'
 theme = "mainroad"
 
-paginate = 5 # Number of posts per page
+# Number of posts per page
+# paginate = 5
+pagination.pagerSize = 5
 copyright = "&copy;{year}, All Rights Reserved"
 summaryLength = 2
 

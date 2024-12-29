@@ -1,7 +1,8 @@
 +++
-title = '1215 Top University Worldwide'
+title = '전세계 상위 20개 대학을 소개합니다(2024년 기준)'
 slug = 'top-20-universities-worldwide'
 date = 2024-12-15T21:20:29+09:00
+description = '2024 Top 20 University Worldwide'
 thumbnail = 'https://images.unsplash.com/photo-1492538368677-f6e0afe31dcc?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&'
 draft = false
 categories = ['생활의발견']
