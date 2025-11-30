@@ -1,4 +1,36 @@
-# Mainroad
+# 겨자씨 Blog
+
+Hugo 기반 개인 블로그 프로젝트입니다. **Mainroad** 테마를 사용하고 있습니다.
+
+## 빠른 시작
+
+```bash
+# 1. 저장소 클론
+git clone <repository-url>
+cd blog-general-hugo-mainroad
+
+# 2. 서브모듈 초기화 (중요!)
+make setup
+
+# 3. 로컬 서버 실행
+make server
+```
+
+로컬 서버는 `http://localhost:1313`에서 실행됩니다.
+
+## 사용 가능한 Make 명령어
+
+```bash
+make help              # 모든 명령어 확인
+make setup             # Git 서브모듈 초기화 (git clone 직후 필수)
+make build             # 정적 사이트 빌드 (public/ 생성)
+make server            # 개발 서버 실행 (drafts 포함)
+make update            # 테마 및 모듈 업데이트
+```
+
+---
+
+# Mainroad Theme
 
 **Mainroad** is a responsive, simple, clean and content-focused [Hugo](https://gohugo.io/) theme based on the
 [MH Magazine lite](https://wordpress.org/themes/mh-magazine-lite/) theme.
