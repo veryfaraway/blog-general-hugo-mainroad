@@ -7,7 +7,7 @@ date: 2022-10-24
 lastmod: 2022-11-20
 author: "야근반장"
 slug: "software-update-v24"
-thumbnail: "https://www.volvocars.com/images/v/-/media/market-assets/korea/applications/pdpspecificationpage/xc40-electric/7_xc40-recharge-tmap-infotainment_2560x1440px.jpg"
+thumbnail: "https://www.volvocars.com/images/cs/v3/assets/blt0feaa88e629251fc/blte2edbca9f659c7d8/68ef4cc65b46c9e04b2dc12c/P09_XC40_center_display_home_screen_autocrop_16X9.png?branch=prod_alias&quality=85&format=auto&iar=0&w=3840"
 categories: [ "마굿간" ]
 tags:
     - 전기차

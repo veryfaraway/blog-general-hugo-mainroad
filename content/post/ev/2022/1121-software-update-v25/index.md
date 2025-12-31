@@ -6,7 +6,7 @@ description: "소프트웨어 V2.5 업데이트 내역"
 date: 2022-11-21
 author: "야근반장"
 slug: "software-update-v25"
-thumbnail: "https://www.volvocars.com/images/v/-/media/market-assets/korea/applications/pdpspecificationpage/xc40-electric/7_xc40-recharge-tmap-infotainment_2560x1440px.jpg"
+thumbnail: "https://www.volvocars.com/images/cs/v3/assets/blt0feaa88e629251fc/blt7ac5fd7d2207a119/668e3dec853fc57792da1c97/ex40-electric-highlights-1-6-1x1.jpg?branch=prod_alias&quality=85&format=auto&iar=0&w=3840"
 categories: [ "마굿간" ]
 tags:
     - 전기차

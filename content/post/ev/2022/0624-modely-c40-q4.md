@@ -5,7 +5,7 @@ subtitle: "Model Y, C40, Q4 e-tron 비교"
 description: "아우디 Q4 e-tron 통풍시트 여부는?"
 date: 2022-06-24
 author: "야근반장"
-thumbnail: "https://www.audi.co.kr/content/dam/nemo/models/q4-e-tron/q4-e-tron/my-2022/NeMo-Carline-Startpage/1920-stage/01_Stage_Desktop.jpg"
+thumbnail: "https://emea-dam.audi.com/adobe/assets/urn:aaid:aem:1fd26139-94f8-4f4e-bf60-542d97eddb67/as/Stage_Desktop.jpg"
 categories: [ "마굿간" ]
 tags:
     - 전기차

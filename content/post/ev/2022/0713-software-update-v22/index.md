@@ -5,7 +5,7 @@ subtitle: "볼보 최신 소프트웨어 업데이트"
 description: "소프트웨어 V2.2 업데이트 내역"
 date: 2022-07-13
 author: "야근반장"
-thumbnail: "https://www.volvocars.com/images/v/-/media/market-assets/korea/applications/dotcom/images/pdp/08_xc40_gallery-18_2560x1440.jpg"
+thumbnail: "https://www.volvocars.com/images/cs/v3/assets/blt0feaa88e629251fc/blt632ec098e938454c/668e3dd80bacf169952a82b5/ex40-electric-highlights-1-5-1x1.jpg?branch=prod_alias&quality=85&format=auto&iar=0&w=3840"
 categories: [ "마굿간" ]
 tags:
     - 전기차
