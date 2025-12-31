@@ -1,0 +1,34 @@
+{{- /* Custom Twitter card template: prefer large image when available */ -}}
+{{- $img := "" -}}
+{{- if .Params.featured_image -}}
+  {{- $img = .Params.featured_image -}}
+{{- else if .Params.image -}}
+  {{- $img = .Params.image -}}
+{{- else if .Site.Params.og_image -}}
+  {{- $img = .Site.Params.og_image -}}
+{{- else -}}
+  {{- $img = "/img/og_image.png" -}}
+{{- end -}}
+
+{{- if $img -}}
+<meta name="twitter:card" content="summary_large_image"/>
+{{- else -}}
+<meta name="twitter:card" content="summary"/>
+{{- end }}
+<meta name="twitter:title" content="{{ .Title }}"/>
+{{- $tdesc := "" -}}
+{{- if .Params.description -}}
+  {{- $tdesc = .Params.description | markdownify | plainify | replaceRE `^\s+|\s+$` "" | truncate 200 -}}
+{{- else if .Summary -}}
+  {{- $tdesc = .Summary | plainify | replaceRE `^\s+|\s+$` "" | truncate 200 -}}
+{{- else -}}
+  {{- $tdesc = .Site.Params.description | default "" | markdownify | plainify | truncate 200 -}}
+{{- end -}}
+<meta name="twitter:description" content="{{ $tdesc | html }}"/>
+{{- with .Site.Params.twitter_site -}}
+<meta name="twitter:site" content="{{ . }}"/>
+<meta name="twitter:creator" content="{{ . }}"/>
+{{- end }}
+{{- if $img -}}
+<meta name="twitter:image" content="{{ $img | absURL }}"/>
+{{- end }}

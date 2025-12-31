@@ -37,6 +37,7 @@ enableEmoji = true
   twitter_cards = true
   # Set your X/Twitter handle (include @) to enable twitter:site and twitter:creator tags
   twitter_site = "@handsomeJung"
+  google_site_verification = "S9MlyquDiOKsmPbgkhf-hFcxe7ByHpv_Zwgv2zq72Bg"
   # Show "Read more" button in list if true
   readmore = false 
   authorbox = false
