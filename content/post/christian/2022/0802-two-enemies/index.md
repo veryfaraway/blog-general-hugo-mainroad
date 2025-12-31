@@ -1,5 +1,6 @@
 +++
 title = '두 가지 적'
+description = "교만과 자기멸시라는 두 가지 적을 경계하며 겸손의 중요성을 전하는 신앙적 교훈 글입니다."
 slug = 'two-enemies'
 date = 2022-08-02
 draft = false

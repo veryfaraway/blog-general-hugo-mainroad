@@ -1,5 +1,6 @@
 +++
 title = '순교'
+description = "순교자들의 이야기와 믿음의 증거를 통해 신앙의 용기와 희생을 전하는 역사적 기록입니다."
 slug = 'martyrdom'
 date = 2022-07-16
 draft = false

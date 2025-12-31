@@ -1,5 +1,6 @@
 +++
 title = '하나님께서 당신을 쓰실 수 없다고 느껴질때'
+description = "성경 인물들의 불완전함을 통해 하나님이 약한 사람들을 쓰시는 방식과 위로를 전하는 글입니다."
 slug = 'when-feel-god-cannot-use-you'
 date = 2022-07-09
 draft = false

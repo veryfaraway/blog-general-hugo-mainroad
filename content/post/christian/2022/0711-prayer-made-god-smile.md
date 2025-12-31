@@ -1,5 +1,6 @@
 +++
 title = '하나님도 미소짓게한 기도'
+description = "아이들의 순수한 기도와 짧은 일화들을 모아 하나님에 대한 순수한 신앙을 보여 주는 글입니다."
 slug = 'prayer-made-god-smile'
 date = 2022-07-11
 draft = false

@@ -5,10 +5,45 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{{ block "title" . }}{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ .Site.Title }}{{ end }}</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
-	<meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Params.Description }}{{ end }}">
+	{{- /* Description fallback logic:
+		1) Home -> site description
+		2) If page has .Params.description -> render markdown then strip HTML (handles markdown input)
+		3) Else if .Summary -> strip HTML from summary
+		4) Else -> site description
+		Finally truncate to ~160 chars and escape for attribute use.
+	*/ -}}
+	{{- $desc := "" -}}
+	{{- if .IsHome -}}
+		{{- $desc = .Site.Params.description | default "" | markdownify | plainify -}}
+	{{- else -}}
+		{{- if .Params.description -}}
+			{{- $desc = .Params.description | markdownify | plainify -}}
+		{{- else if .Summary -}}
+			{{- $desc = .Summary | plainify -}}
+		{{- else -}}
+			{{- $desc = .Site.Params.description | default "" | markdownify | plainify -}}
+		{{- end -}}
+	{{- end -}}
+	{{- /* Trim leading/trailing whitespace using regex (trim requires 2 args in this Hugo version) */ -}}
+	{{- $desc = $desc | replaceRE `^\s+|\s+$` "" | truncate 160 -}}
+	<meta name="description" content="{{ $desc | html }}">
+
+	{{- /* OpenGraph: include internal template (if enabled) then provide a simple og:image fallback */ -}}
 	{{- if .Site.Params.opengraph }}
 		{{ template "_internal/opengraph.html" . }}
 	{{- end }}
+	{{- /* og:image fallback: prefer page params, then site param, then static default */ -}}
+	{{- $ogImage := "" -}}
+	{{- if .Params.featured_image -}}
+		{{- $ogImage = .Params.featured_image -}}
+	{{- else if .Params.image -}}
+		{{- $ogImage = .Params.image -}}
+	{{- else if .Site.Params.og_image -}}
+		{{- $ogImage = .Site.Params.og_image -}}
+	{{- else -}}
+		{{- $ogImage = "/img/og_image.png" -}}
+	{{- end -}}
+	<meta property="og:image" content="{{ $ogImage | absURL }}" />
 	{{- if .Site.Params.schema }}
 		{{ template "_internal/schema.html" . }}
 	{{- end }}

@@ -1,5 +1,6 @@
 +++
 title = '크리스챤의 비상 연락망'
+description = "상황별로 권할 성경 구절(시편, 복음서 등)을 정리한 추천 목록으로 위기와 필요에 따라 찾아볼 수 있습니다."
 slug = 'christian-emergency-contacts'
 date = 2022-07-12
 draft = false

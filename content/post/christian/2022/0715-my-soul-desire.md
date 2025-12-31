@@ -1,5 +1,6 @@
 +++
 title = '내 영혼이 갈망하는 것'
+description = "시편의 구절을 바탕으로 영혼의 갈망과 하나님을 향한 소망을 묵상하는 신앙적 글입니다."
 slug = 'what-my-soul-longs-for'
 date = 2022-07-15
 draft = false

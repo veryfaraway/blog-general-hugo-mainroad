@@ -1,5 +1,6 @@
 +++
 title = '링컨 이야기'
+description = "링컨과 스탠턴의 일화를 통해 용서와 리더십의 의미를 생각하게 하는 역사적 일화입니다."
 slug = 'abraham-lincoln'
 date = 2022-07-08
 draft = false

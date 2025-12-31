@@ -1,5 +1,6 @@
 +++
 title = '자랑할 수 없는 고통'
+description = "골프에 빠진 한 목사의 에피소드를 통해 자랑과 겸손에 대해 생각하게 하는 짧은 묵상입니다."
 slug = 'pain-cannot-brag-about'
 date = 2022-07-05
 draft = false

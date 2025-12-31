@@ -1,5 +1,6 @@
 +++
 title = '왜 살려 주시는가?'
+description = "영화 '벤허'의 한 장면을 통해 삶의 의미와 하나님께서 우리를 왜 살려두시는지 성찰하게 하는 글입니다."
 slug = 'why-letting-you-live'
 date = 2022-07-07
 draft = false

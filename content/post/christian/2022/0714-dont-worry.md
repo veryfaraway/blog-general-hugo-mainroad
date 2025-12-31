@@ -1,5 +1,6 @@
 +++
 title = '뭘 걱정하세요?'
+description = "일과 기도의 균형을 권하는 간결한 격언으로, 결과를 하나님께 맡기라는 신앙적 메시지를 전합니다."
 slug = 'dont-worry'
 date = 2022-07-14
 draft = false

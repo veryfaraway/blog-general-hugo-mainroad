@@ -1,5 +1,6 @@
 +++
 title = '크리스마스 유래'
+description = "크리스마스가 12월 25일로 정해진 역사적 배경과 교회의 전통 형성 과정을 설명하는 글입니다."
 slug = 'christmas-origins'
 date = 2022-07-10
 draft = false

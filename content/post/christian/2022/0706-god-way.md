@@ -1,5 +1,6 @@
 +++
 title = '하나님의 방법'
+description = "무인도에서의 생존 이야기로 하나님께 대한 감사와 의존을 되새기게 하는 짧은 신앙적 일화입니다."
 slug = 'god-way'
 date = 2022-07-06
 draft = false

@@ -34,7 +34,9 @@ enableEmoji = true
   copyright = "eOne" # Footer copyright holder, otherwise will use site title
   opengraph = true # Enable OpenGraph if true
   schema = true # Enable Schema
-  twitter_cards = false
+  twitter_cards = true
+  # Set your X/Twitter handle (include @) to enable twitter:site and twitter:creator tags
+  twitter_site = "@handsomeJung"
   # Show "Read more" button in list if true
   readmore = false 
   authorbox = false

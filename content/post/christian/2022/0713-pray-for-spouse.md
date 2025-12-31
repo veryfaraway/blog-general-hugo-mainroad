@@ -1,5 +1,6 @@
 +++
 title = '[나는 이렇게 기도한다] 결혼과 배우자를 위해'
+description = "결혼과 배우자를 위해 드리는 기도문으로, 좋은 배우자를 구하는 마음과 소망을 담은 기도입니다."
 slug = 'pray-for-spouse'
 date = 2022-07-13
 draft = false
