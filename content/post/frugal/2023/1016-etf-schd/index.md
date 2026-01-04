@@ -4,7 +4,7 @@ date = 2023-10-16T20:20:08+09:00
 draft = false
 slug = 'etf-overview-schd'
 description = "미국 ETF SCHD에 대해서 설명합니다."
-thumbnail = "https://www.thestreet.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cg_faces:center%2Cq_auto:good%2Cw_768/MjA2NTcxMjg5NTc2NDgyNTEw/ig_header-image_schd.png"
+thumbnail = "https://images.unsplash.com/photo-1648098893250-1d03dce92467?q=80&w=2806&auto=format&fit=crop"
 categories = ['스노볼']
 tags = ['ETF', 'SCHD']
 +++
