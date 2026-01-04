@@ -14,6 +14,7 @@ tags:
     - 쿠팡
     - 스마트 플러그
 draft: false
+affiliate: true
 ---
 
 ![가격정보](coupang-tapo-p100.png "Tapo P100")

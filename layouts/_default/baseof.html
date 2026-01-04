@@ -98,6 +98,7 @@
 			{{ block "main" . }}
 				{{ with .Content }}
 				<div class="content main__content clearfix">
+					{{ partial "affiliate_notice.html" . }}
 					{{ . }}
 				</div>
 				{{ end }}

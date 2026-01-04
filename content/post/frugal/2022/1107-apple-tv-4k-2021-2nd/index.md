@@ -14,6 +14,7 @@ tags:
     - Amazon
     - Apple TV
 draft: false
+affiliate: true
 ---
 
 얼마 전에 Apple TV 4K 3세대가 출시되었는데요, 이에 미국 아마존에서 [2세대 모델](https://amzn.to/3WHlXpk)을 $99.99로 할인해서 판매하고 있습니다.

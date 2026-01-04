@@ -52,6 +52,8 @@ enableEmoji = true
   mathjaxPath = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js" # Specify MathJax path
   mathjaxConfig = "TeX-AMS-MML_HTMLorMML" # Specify MathJax config
   googleFontsLink = "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" # Load Google Fonts
+  # Add custom CSS files (relative to `static/`) that will be loaded after the main stylesheet
+  customCSS = ["css/affiliate.css"]
 
 
 [Params.Author]
