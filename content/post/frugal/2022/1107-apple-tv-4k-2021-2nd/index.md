@@ -1,7 +1,7 @@
 ---
 layout: post 
 title: "애플TV 4K 2세대 할인(2021년형) 정보"
-subtitle: "2021 Apple TV 4K 32GB 2nd Generation 할인 판매"
+subtitle: "2021 Apple TV 4K 32GB 2nd Generation 할인 판매 정보 놓치지 마세요!"
 description: "애플TV 4K 2021년형 재고떨이 할인 판매 $99.99"
 date: 2022-11-07
 lastmod: 2022-11-07

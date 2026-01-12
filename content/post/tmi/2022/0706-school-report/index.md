@@ -3,6 +3,7 @@ layout: post
 title: "성적표의 수우미양가의 뜻 아세요??"
 description: "80년대 성적표, 수우미양가의 의미는?"
 date: 2022-07-06
+slug: "elementary-school-report-card"
 author: "야근반장"
 thumbnail: "https://nepeantutoring.com.au/wp-content/uploads/2021/07/museums-victoria-n1LIveUPls4-unsplash.jpg"
 categories: [ "생활의발견" ]
