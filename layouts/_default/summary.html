@@ -15,9 +15,18 @@
 		{{- end }}
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		{{- $s := .Summary | plainify | replaceRE `^\s+|\s+$` "" | truncate 200 -}}
-		{{- if $s }}
-		<p>{{ $s }}</p>
+		{{- $desc := "" -}}
+		{{- if .Params.description -}}
+			{{- $desc = .Params.description | markdownify | plainify | replaceRE `^\s+|\s+$` "" | truncate 200 -}}
+		{{- else if .Params.lead -}}
+			{{- $desc = .Params.lead | markdownify | plainify | replaceRE `^\s+|\s+$` "" | truncate 200 -}}
+		{{- else if .Summary -}}
+			{{- $desc = .Summary | plainify | replaceRE `^\s+|\s+$` "" | truncate 200 -}}
+		{{- else -}}
+			{{- $desc = .Content | markdownify | plainify | replaceRE `^\s+|\s+$` "" | truncate 200 -}}
+		{{- end -}}
+		{{- if $desc }}
+		<p>{{ $desc }}</p>
 		{{- end }}
 	</div>
 	{{- if .Site.Params.readmore }}
