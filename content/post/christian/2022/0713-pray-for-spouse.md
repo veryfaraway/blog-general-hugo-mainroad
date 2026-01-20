@@ -6,7 +6,7 @@ date = 2022-07-13
 draft = false
 thumbnail = 'https://images.unsplash.com/photo-1565248036106-56ff1b8a9365?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3'
 categories = [ 'Christian' ]
-tags = ['기도']
+tags = ['기도', '배우자']
 +++
 
 > 은혜와 사랑이 많으신 하나님 아버지!  
