@@ -6,6 +6,12 @@ languageCode = 'ko'
 title = '겨자씨'
 theme = "mainroad"
 
+# Allow raw HTML in Markdown (Goldmark)
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 # Number of posts per page
 # paginate = 5
 pagination.pagerSize = 5
