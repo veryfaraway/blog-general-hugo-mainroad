@@ -3,10 +3,9 @@ title = '트럼프의 베네수엘라 침공, 결국 ‘석유’와 돈의 문�
 date = 2026-01-04T10:00:00+09:00
 slug = 'trump-venezuela-oil-money'
 description = "마약과 안보를 내세운 트럼프의 베네수엘라 침공을 석유·자원·기업 이해관계 중심으로 해부한다. 세계 최대 석유 매장량, 무거운 원유, 미국 정유사·에너지 기업의 수혜 구조까지 정리."
-lang = "ko"
 thumbnail = "https://images.unsplash.com/photo-1516937941344-00b4e0337589?q=80&w=2370&auto=format&fit=crop"
 draft = false
-categories = ['자린고비']
+categories = ['주절주절']
 tags = ['베네수엘라', '트럼프', '석유', '에너지', '국제정치', '미국주식']
 +++
 

@@ -1,0 +1,10 @@
+{{- $id := printf "chart-%s" (md5 .Inner) -}}
+<div style="max-width: 600px; margin: 1em auto;">
+  <canvas id="{{ $id }}"></canvas>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var ctx = document.getElementById('{{ $id }}').getContext('2d');
+  new Chart(ctx, {{ .Inner | safeJS }});
+});
+</script>

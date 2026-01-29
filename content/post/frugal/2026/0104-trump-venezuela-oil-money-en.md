@@ -3,10 +3,9 @@ title = 'Trump’s Invasion of Venezuela: Is It Ultimately About Oil and Money?'
 date = 2026-01-04T10:00:00+09:00
 slug = 'trump-venezuela-oil-money-en'
 description = "An economic look at Trump’s invasion of Venezuela, focusing on oil, resources, and corporate interests. Explores the world’s largest oil reserves, heavy crude, and the potential winners among U.S. refiners and energy companies."
-lang = "en"
 thumbnail = "https://images.unsplash.com/photo-1516937941344-00b4e0337589?q=80&w=2370&auto=format&fit=crop"
 draft = false
-categories = ['자린고비']
+categories = ['주절주절']
 tags = ['베네수엘라', '트럼프', '석유', '에너지', '국제정치']
 +++
 

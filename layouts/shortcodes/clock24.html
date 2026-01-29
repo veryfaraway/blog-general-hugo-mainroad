@@ -1,0 +1,114 @@
+{{- $title := .Get "title" | default "24시간 일과표" -}}
+{{- $id := printf "clock24-%s" (md5 .Inner) -}}
+{{- $lines := split .Inner "\n" -}}
+
+{{- $labels := slice -}}
+{{- $colors := slice -}}
+{{- $durations := slice -}}
+
+{{- $firstStart := 0.0 -}}
+{{- $hasFirstStart := false -}}
+
+{{- range $lines -}}
+{{- $line := . | replaceRE `^\s+|\s+$` "" -}}
+{{- if and (ne $line "") (not (hasPrefix $line "#")) -}}
+{{- $parts := split $line ":" -}}
+{{- if ge (len $parts) 2 -}}
+{{- $timePart := index $parts 0 | replaceRE `^\s+|\s+$` "" -}}
+{{- $rest := index $parts 1 | replaceRE `^\s+|\s+$` "" -}}
+{{- $infoParts := split $rest "," -}}
+{{- $label := index $infoParts 0 | replaceRE `^\s+|\s+$` "" -}}
+{{- $color := "#6b7280" -}}
+{{- if ge (len $infoParts) 2 -}}
+{{- $color = index $infoParts 1 | replaceRE `^\s+|\s+$` "" -}}
+{{- end -}}
+{{- $timeRange := split $timePart "-" -}}
+{{- if eq (len $timeRange) 2 -}}
+{{- $startStr := index $timeRange 0 | replaceRE `^\s+|\s+$` "" -}}
+{{- $endStr := index $timeRange 1 | replaceRE `^\s+|\s+$` "" -}}
+{{- $start := float $startStr -}}
+{{- $end := float $endStr -}}
+{{- if not $hasFirstStart -}}
+{{- $firstStart = $start -}}
+{{- $hasFirstStart = true -}}
+{{- end -}}
+{{- $duration := sub $end $start -}}
+{{- if lt $duration 0.0 -}}
+{{- $duration = add $duration 24.0 -}}
+{{- end -}}
+{{- $labels = $labels | append $label -}}
+{{- $colors = $colors | append $color -}}
+{{- $durations = $durations | append $duration -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+
+<div style="max-width: 520px; margin: 1.5em auto;">
+  <canvas id="{{ $id }}" style="display:block; width:100%; height:auto;"></canvas>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const labels = {{ $labels | jsonify | safeJS
+  }};
+  const durations = {{ $durations | jsonify | safeJS }};
+  const colors = {{ $colors | jsonify | safeJS }};
+  const firstStart = {{ $firstStart | jsonify | safeJS }};
+
+  if (!Array.isArray(labels) || labels.length === 0) {
+    console.warn('clock24: No data to display');
+    return;
+  }
+
+  // Chart.js v4: degrees. 0 deg is 12 o'clock.
+  // We want 0:00 to be at 12 o'clock.
+  // Rotation shifts the start of the first slice.
+  // If firstStart is 23.5, we need to place it 23.5 hours away from 12 o'clock.
+  const rotation = firstStart * 15; // 360 / 24 = 15 deg per hour
+
+  const ctx = document.getElementById('{{ $id }}').getContext('2d');
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: labels,
+      datasets: [{
+        data: durations,
+        backgroundColor: colors,
+        borderColor: '#ffffff',
+        borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      aspectRatio: 1,
+      rotation: rotation,
+      circumference: 360,
+      cutout: '40%',
+      plugins: {
+        title: {
+          display: true,
+          text: {{ $title | jsonify | safeJS }},
+    font: { size: 16, weight: 'bold' }
+        },
+    legend: {
+    display: true,
+    position: 'bottom',
+    labels: {
+      filter: function (item, chartData) {
+        return chartData.labels.indexOf(item.text) === item.index;
+      }
+    }
+  },
+    tooltip: {
+    callbacks: {
+      label: function (context) {
+        return context.label + ': ' + context.raw + '시간';
+      }
+    }
+  }
+      }
+    }
+  });
+});
+</script>

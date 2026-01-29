@@ -1,0 +1,6 @@
+{{- if .Page.HasShortcode "mermaid" -}}
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" crossorigin="anonymous"></script>
+<script>
+  mermaid.initialize({ startOnLoad: true, theme: 'default' });
+</script>
+{{- end -}}

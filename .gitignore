@@ -1,4 +1,4 @@
-### VS Code ###
+# VS Code
 .vscode/
 
 # Generated files by hugo
@@ -14,3 +14,4 @@ hugo.linux
 
 # Temporary lock file while building
 /.hugo_build.lock
+/.tmp_build
