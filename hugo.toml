@@ -59,7 +59,7 @@ enableEmoji = true
   mathjaxConfig = "TeX-AMS-MML_HTMLorMML" # Specify MathJax config
   googleFontsLink = "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" # Load Google Fonts
   # Add custom CSS files (relative to `static/`) that will be loaded after the main stylesheet
-  customCSS = ["css/affiliate.css"]
+  customCSS = ["css/affiliate.css", "css/list-spacing.css"]
 
 
 [Params.Author]

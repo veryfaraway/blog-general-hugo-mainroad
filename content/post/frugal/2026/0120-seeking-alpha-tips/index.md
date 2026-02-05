@@ -12,6 +12,8 @@ draft = false
 
 미국 주식을 하다 보면 "이 종목, 지금 사도 될까?"라는 고민에 빠질 때가 많습니다. 구글링이나 뉴스만으로는 부족함을 느낄 때, 전 세계 고수들의 인사이트를 한곳에 모아둔 **시킹알파(Seeking Alpha)** 는 최고의 가이드가 되어줍니다.
 
+👉 [**Seeking Alpha $25 할인 및 14일 무료체험 링크 클릭**](https://seekingalpha.com/subscriptions/refer-a-friend?source=refer_friend_link&user_referrer=91b2f66cc36855b50f4ed68b)
+
 오늘은 시킹알파가 왜 미국 주식 투자자의 필수 사이트인지, 그리고 유료 기능을 어떻게 100% 활용할 수 있는지 핵심만 짚어드릴게요!
 
 ---

@@ -1,0 +1,17 @@
+/* Custom list spacing fixes for ordered lists with nested unordered lists */
+
+/* Increase spacing between numbered items */
+.content ol > li {
+	margin-bottom: 12px !important;
+}
+
+/* Reduce spacing between numbered item and its nested bullet list */
+.content ol > li > ul {
+	margin-top: 8px !important;
+	margin-bottom: 0 !important;
+}
+
+/* Tighter spacing between bullet items within the same group */
+.content ol > li > ul > li {
+	margin-bottom: 3px !important;
+}
