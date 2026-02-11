@@ -1,0 +1,79 @@
+{{- /*
+  Cloudinary image shortcode
+
+  Usage:
+  {{< cldimg public_id="folder/name.jpg" cloud="mycloud" alt="설명" widths="320,640,960" sizes="100vw" class="img-class" placeholderW="40" caption="캡션" >}}
+
+  Behavior:
+  - Builds Cloudinary URLs by inserting transformation after `/upload/`.
+  - Uses `f_auto,q_auto` to select format/quality automatically.
+  - Generates low-res placeholder and does blur-up with IntersectionObserver.
+  - Supports `src` (full URL) or `public_id` + `cloud` shorthand.
+*/ -}}
+{{- $src := .Get "src" | default "" -}}
+{{- $public := .Get "public_id" -}}
+{{- $cloud := .Get "cloud" -}}
+{{- $alt := .Get "alt" | default "" -}}
+{{- $widthsParam := .Get "widths" | default "320,640,960,1280" -}}
+{{- $sizes := .Get "sizes" | default "100vw" -}}
+{{- $class := .Get "class" | default "" -}}
+{{- $lazy := .Get "lazy" | default "true" | eq "true" -}}
+{{- $placeholderW := .Get "placeholderW" | default "40" -}}
+{{- $caption := .Get "caption" -}}
+
+{{- /* Build base src from public_id/cloud if src not provided */ -}}
+{{- if and (eq $src "") $public -}}
+  {{- if $cloud -}}
+    {{- $src = printf "https://res.cloudinary.com/%s/image/upload/%s" $cloud $public -}}
+  {{- else -}}
+    {{- $src = printf "https://res.cloudinary.com/%s/image/upload/%s" "" $public -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $widths := split $widthsParam "," -}}
+{{- $srcset := slice -}}
+{{- $entry := "" -}}
+
+{{- /* helper: insert transform after /upload/ */ -}}
+{{- range $i, $w := $widths -}}
+  {{- $w = replaceRE `^\s+|\s+$` "" $w -}}
+  {{- if findRE `/upload/` $src -}}
+    {{- $entry = replaceRE `/upload/` (printf `/upload/w_%s,c_scale,f_auto,q_auto/` $w) $src -}}
+  {{- else -}}
+    {{- $entry = $src -}}
+  {{- end -}}
+  {{- $srcset = $srcset | append (printf "%s %sw" $entry $w) -}}
+{{- end -}}
+
+{{- /* placeholder */ -}}
+{{- $ph := "" -}}
+{{- if findRE `/upload/` $src -}}
+  {{- $ph = replaceRE `/upload/` (printf `/upload/w_%s,c_scale,f_auto,q_auto/` $placeholderW) $src -}}
+{{- else -}}
+  {{- $ph = $src -}}
+{{- end -}}
+
+{{- $first := index $srcset 0 | default $src -}}
+{{- $imgId := printf "cldimg-%s" (md5 (print $src $sizes $widthsParam)) -}}
+<figure class="cfimg-figure">
+  <img id="{{ $imgId }}" src="{{ $ph }}" data-src="{{ (index (split (index (split $first " ") 0) "") 0) }}" data-srcset="{{ delimit $srcset ", " }}" sizes="{{ $sizes }}" alt="{{ $alt }}" class="{{ $class }} cfimg-lazy cfimg--blur" loading="lazy" decoding="async">
+  {{- if $caption }}
+  <figcaption class="cfimg-caption">{{ $caption }}</figcaption>
+  {{- end }}
+</figure>
+
+<script>
+(function(){
+  var img = document.getElementById('{{ $imgId }}');
+  if(!img) return;
+  function swap(){
+    if(img.dataset.src) img.src = img.dataset.src;
+    if(img.dataset.srcset) img.srcset = img.dataset.srcset;
+    img.addEventListener('load', function(){ img.classList.remove('cfimg--blur'); });
+  }
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting){ swap(); io.unobserve(img); }}); });
+    io.observe(img);
+  } else { swap(); }
+})();
+</script>

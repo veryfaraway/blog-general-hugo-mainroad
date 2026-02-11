@@ -1,0 +1,90 @@
+{{- /*
+  Cloudflare-optimized image shortcode
+
+  Usage:
+  {{< cfimg src="https://example.com/images/foo.jpg" alt="설명" widths="320,640,960" sizes="(max-width:720px) 100vw, 720px" class="img-class" lazy="true" caption="그림 설명" >}}
+
+  Behavior:
+  - Builds `srcset` by inserting `/cdn-cgi/image/` params after the host: e.g.
+    https://example.com/cdn-cgi/image/width=320,format=auto,quality=75/images/foo.jpg
+  - If provided `src` already contains `cdn-cgi/image`, it updates `width=` param for each entry.
+  - Default widths: 320,640,960,1280
+  - Default sizes: `100vw`
+  - Default quality: 75
+*/ -}}
+{{- $src := .Get "src" | default (.Inner | plainify) -}}
+{{- $idParam := .Get "id" -}}
+{{- $account := .Get "account" -}}
+{{- $host := .Get "host" | default "https://imagedelivery.net" -}}
+{{- $alt := .Get "alt" | default "" -}}
+{{- $widthsParam := .Get "widths" | default "320,640,960,1280" -}}
+{{- $sizes := .Get "sizes" | default "100vw" -}}
+{{- $class := .Get "class" | default "" -}}
+{{- $lazy := .Get "lazy" | default "true" | eq "true" -}}
+{{- $quality := .Get "quality" | default "75" -}}
+{{- $placeholderW := .Get "placeholderW" | default "40" -}}
+{{- $placeholderQ := .Get "placeholderQ" | default "20" -}}
+{{- $fit := .Get "fit" | default "cover" -}}
+{{- $caption := .Get "caption" -}}
+
+{{- /* If user provided `id` (Cloudflare Images public id) build a base src when possible */ -}}
+{{- if and (not $src) $idParam -}}
+  {{- if findRE `/.+/.+` $idParam -}}
+    {{- /* id looks like account/id */ -}}
+    {{- $src = printf "%s/%s/public" $host $idParam -}}
+  {{- else if $account -}}
+    {{- $src = printf "%s/%s/%s/public" $host $account $idParam -}}
+  {{- else -}}
+    {{- /* fallback: append id to host */ -}}
+    {{- $src = printf "%s/%s/public" $host $idParam -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $widths := split $widthsParam "," -}}
+{{- $srcset := slice -}}
+
+{{- /* Build full-size srcset entries */ -}}
+{{- range $i, $w := $widths -}}
+  {{- $w = replaceRE `^\s+|\s+$` "" $w -}}
+  {{- if findRE `cdn-cgi\/image` $src -}}
+    {{- $paramsPattern := `(cdn-cgi\/image\/[^/]+)` -}}
+    {{- $entry := cond (findRE `width=` $src) (replaceRE `width=\d+` (printf `width=%s` $w) $src) (replaceRE $paramsPattern (printf `$1,width=%s,format=auto,quality=%s` $w $quality) $src) -}}
+    {{- $srcset = $srcset | append (printf "%s %sw" $entry $w) -}}
+  {{- else -}}
+    {{- $entry := replaceRE `^((https?:\/\/[^\/]+))` (printf `$1/cdn-cgi/image/width=%s,format=auto,quality=%s` $w $quality) $src -}}
+    {{- $srcset = $srcset | append (printf "%s %sw" $entry $w) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* placeholder (low-res) */ -}}
+{{- $ph := "" -}}
+{{- if findRE `cdn-cgi\/image` $src -}}
+  {{- $ph = replaceRE `width=\d+` (printf `width=%s` $placeholderW) $src -}}
+{{- else -}}
+  {{- $ph = replaceRE `^((https?:\/\/[^\/]+))` (printf `$1/cdn-cgi/image/width=%s,format=auto,quality=%s` $placeholderW $placeholderQ) $src -}}
+{{- end -}}
+
+{{- $first := index $srcset 0 | default $src -}}
+{{- $imgId := printf "cfimg-%s" (md5 (print $src $sizes $widthsParam)) -}}
+<figure class="cfimg-figure">
+  <img id="{{ $imgId }}" src="{{ (index (split (index (split $ph " ") 0) "") 0) }}" data-src="{{ (index (split (index (split $first " ") 0) "") 0) }}" data-srcset="{{ delimit $srcset ", " }}" sizes="{{ $sizes }}" alt="{{ $alt }}" class="{{ $class }} cfimg-lazy cfimg--blur" loading="lazy" decoding="async">
+  {{- if $caption }}
+  <figcaption class="cfimg-caption">{{ $caption }}</figcaption>
+  {{- end }}
+</figure>
+
+<script>
+(function(){
+  var img = document.getElementById('{{ $imgId }}');
+  if(!img) return;
+  function swap(){
+    if(img.dataset.src) img.src = img.dataset.src;
+    if(img.dataset.srcset) img.srcset = img.dataset.srcset;
+    img.addEventListener('load', function(){ img.classList.remove('cfimg--blur'); });
+  }
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting){ swap(); io.unobserve(img); }}); });
+    io.observe(img);
+  } else { swap(); }
+})();
+</script>
