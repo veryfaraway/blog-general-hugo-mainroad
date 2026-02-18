@@ -41,7 +41,6 @@ graph LR
   D --> E
 {{< /mermaid >}}
 
-
 ## 차트 예제 (`chart` shortcode)
 
 `chart` shortcode는 내부에 Chart.js 구성 객체를 직접 넣어 렌더링합니다. 아래는 샘플 바 차트 구성입니다.
@@ -94,7 +93,6 @@ console.log(greet('Hugo'));
 
 > 참고: shortcodes는 테마의 `layouts/shortcodes`에 정의되어 있으므로, 필요 시 포맷을 수정하거나 파라미터를 추가해 사용하세요.
 
- 
 ## Alert (알림) 예제 — `alert` shortcode
 
 아래는 상황에 맞는 메시지를 보여주는 `alert` shortcode 예제입니다. `type`은 `info`(기본), `success`, `warning`, `danger` 중 하나를 사용하세요. `close="true"`를 주면 닫기 버튼이 표시됩니다.
