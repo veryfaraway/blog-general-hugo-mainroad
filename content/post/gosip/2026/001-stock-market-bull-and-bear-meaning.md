@@ -22,7 +22,6 @@ tags = ['주식용어', '경제상식']
 * **특징:** 투자 심리 호전, 주가 상승 지속, 거래량 증가
 * **상징:** 도전적이고 활기찬 시장의 에너지
 
-
 ![Bull Market](https://res.cloudinary.com/doal3ofyr/image/upload/l_logo-coffee,w_1000,o_30/f_auto,q_auto/v1769169579/media/references/term-bull-market_pc0hy6.webp)
 
 ---

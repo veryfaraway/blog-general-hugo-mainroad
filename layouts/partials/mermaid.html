@@ -1,4 +1,8 @@
-{{- if .Page.HasShortcode "mermaid" -}}
+{{- /* Load Mermaid if page uses the mermaid shortcode or contains a fenced mermaid code block */ -}}
+{{- $hasShort := .Page.HasShortcode "mermaid" -}}
+{{- $raw := .Page.RawContent | default .Content -}}
+{{- $hasFenced := gt (len (findRE "(?m)^```mermaid" $raw)) 0 -}}
+{{- if or $hasShort $hasFenced -}}
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" crossorigin="anonymous"></script>
 <script>
   mermaid.initialize({ startOnLoad: true, theme: 'default' });
