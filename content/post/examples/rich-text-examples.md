@@ -60,6 +60,42 @@ graph LR
 }
 {{< /chart >}}
 
+### Chart.js 숏코드 (`chartjs`) 사용법
+
+새로 추가된 `chartjs` 숏코드는 두 가지 방식으로 사용할 수 있습니다:
+
+- **직접 초기화 (현재 형태)**: 숏코드 안에 Chart.js 초기화 코드를 넣어 사용합니다. 기존 `rawhtml` 블록을 대체하는 용도로 적합합니다.
+
+```
+{{< chartjs id="monthlyChart" width="700" height="320" >}}
+(function() {
+  const years = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+  const costA = [401,404,408,411,415,418,422,427,431,436,441,446,451,457,463,469,476,483,490,498];
+  const costB = [149,153,158,163,168,173,178,183,189,194,200,206,212,219,225,232,239,246,254,261];
+  new Chart(document.getElementById('monthlyChart'), {
+    type: 'line',
+    data: {
+      labels: years.map(y => y + '년'),
+      datasets: [ /* ... */ ]
+    }
+  });
+})();
+{{< /chartjs >}}
+```
+
+- **파라미터형 자동 초기화 (발전된 형태)**: `config` 파라미터에 Chart.js 구성(JSON)을 전달하면 숏코드가 자동으로 초기화합니다. JSON은 홑따옴표로 감싸 전달하세요.
+
+```
+{{< chartjs id="netWorthChart" width="700" height="380" config='{"type":"line","data":{"labels":["1","2","3"],"datasets":[{"label":"샘플","data":[1,2,3]}]}}' >}}{{< /chartjs >}}
+```
+
+이 방식의 장점:
+
+- 게시물에서 반복되는 차트를 간단한 JSON 파라미터로 삽입할 수 있습니다.
+- `chartjs` 숏코드는 추가 파라미터를 모두 `data-<name>` 속성으로 캔버스에 전달하므로, 필요 시 사용자 스크립트에서 `dataset`을 통해 접근할 수 있습니다.
+
+참고: JSON을 직접 숏코드 인자로 넣을 때는 작은따옴표로 전체를 감싸고 내부에는 큰따옴표를 사용하세요.
+
 ## 24시간 일과표 예제 (`clock24` shortcode)
 
 아래는 `clock24` shortcode 사용 예제입니다. 각 줄은 `시작-종료: 라벨, 색상` 형식을 따릅니다.
