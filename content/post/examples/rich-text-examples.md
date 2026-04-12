@@ -149,6 +149,38 @@ console.log(greet('Hugo'));
 치명적인 오류가 발생했습니다. 즉시 조치하세요.
 {{< /alert >}}
 
+## YouTube 비디오 삽입 예제 (`youtube` shortcode)
+
+간단한 YouTube 비디오 임베드를 지원하는 `youtube` shortcode를 추가했습니다. 사용법은 다음과 같습니다.
+
+- Positional (ID 또는 URL):
+
+```
+{{< youtube "dQw4w9WgXcQ" >}}
+```
+
+또는
+
+```
+{{< youtube "https://youtu.be/dQw4w9WgXcQ" >}}
+```
+
+- Named parameters (옵션):
+
+```
+{{< youtube id="dQw4w9WgXcQ" ratio="4:3" nocookie="true" autoplay="0" start="30" width="700" title="샘플 비디오" >}}
+```
+
+주요 파라미터:
+
+- `id` / positional: YouTube 영상 ID 또는 전체 URL (ID가 우선)
+- `ratio`: `16:9`(기본) 또는 `4:3`, `1:1` 등
+- `nocookie`: `true`(기본, privacy-enhanced) 또는 `false`
+- `autoplay`, `controls`, `rel`, `start`, `end`, `loop`, `mute`, `cc_load_policy`: YouTube 임베드 쿼리 파라미터로 그대로 전달됩니다
+- `width`: 최대 가로(px) — 지정하면 중앙 정렬된 최대 너비로 표시됩니다
+
+예: 자동 재생 및 30초부터 시작하려면 `autoplay="1" start="30"`를 사용하세요.
+
 ## Cloudinary 이미지 최적화 예제 — `cldimg` shortcode
 
 Cloudinary의 URL 기반 트랜스포밍을 활용해 `srcset`과 `sizes`를 자동 생성하는 `cldimg` shortcode를 추가했습니다. 사용 예 (public id + cloud 이름):

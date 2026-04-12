@@ -1,0 +1,89 @@
+{{- /*
+YouTube shortcode
+Usage:
+  {{< youtube "VIDEO_ID_or_URL" >}}
+  {{< youtube id="VIDEO_ID" ratio="16:9" nocookie="true" autoplay="0" start="30" width="700" >}}
+
+Params:
+  - positional or `id`/`url`: video id or full YouTube URL
+  - ratio: `16:9` (default) or `4:3` etc.
+  - nocookie: "true" (default) or "false"
+  - autoplay, controls, rel, start, end, loop, mute, cc_load_policy: passthrough values
+  - width: max-width in px (optional)
+*/ -}}
+
+{{ $raw := .Get "id" | default (.Get "url") | default (.Get 0) }}
+{{ if not $raw }}
+  {{ return "" }}
+{{ end }}
+
+{{/* try to extract 11-char video id from common youtube forms */}}
+{{ $id := .Get "id" }}
+{{ if not $id }}
+  {{ $id = replaceRE `(?i).*(?:v=|be/|embed/)([A-Za-z0-9_-]{11}).*` `$1` $raw }}
+{{ end }}
+
+{{/* if extraction failed (replaceRE returns original), try last path segment without query */}}
+{{ if not (findRE `^[A-Za-z0-9_-]{11}$` $id) }}
+  {{ $segments := split $raw "/" }}
+  {{ $last := index $segments (sub (len $segments) 1) }}
+  {{ $last = replaceRE `\?.*$` "" $last }}
+  {{ if findRE `^[A-Za-z0-9_-]{11}$` $last }}
+    {{ $id = $last }}
+  {{ end }}
+{{ end }}
+
+{{/* require a valid 11-character id */}}
+{{ if not (findRE `^[A-Za-z0-9_-]{11}$` $id) }}
+  {{ return "" }}
+{{ end }}
+
+{{ $nocookie := default "true" (.Get "nocookie") }}
+{{ $base := (cond (eq $nocookie "false") "https://www.youtube.com/embed/" "https://www.youtube-nocookie.com/embed/") }}
+
+{{/* build query params */}}
+{{ $params := slice }}
+{{ $controls := default "1" (.Get "controls") }}
+{{ $params = $params | append (printf "controls=%s" $controls) }}
+{{ $params = $params | append (printf "rel=%s" (default "0" (.Get "rel"))) }}
+{{ $params = $params | append (printf "modestbranding=%s" (default "1" (.Get "modestbranding"))) }}
+{{ with .Get "autoplay" }}{{ $params = $params | append (printf "autoplay=%s" .) }}{{ end }}
+{{ with .Get "start" }}{{ $params = $params | append (printf "start=%s" .) }}{{ end }}
+{{ with .Get "end" }}{{ $params = $params | append (printf "end=%s" .) }}{{ end }}
+{{ with .Get "mute" }}{{ $params = $params | append (printf "mute=%s" .) }}{{ end }}
+{{ with .Get "cc_load_policy" }}{{ $params = $params | append (printf "cc_load_policy=%s" .) }}{{ end }}
+{{ $loop := default "0" (.Get "loop") }}
+{{ if eq $loop "1" }}
+  {{ $params = $params | append "loop=1" }}
+  {{ $params = $params | append (printf "playlist=%s" $id) }}
+{{ end }}
+
+{{ $query := delimit $params "&" }}
+
+{{/* aspect ratio -> padding-bottom percentage */}}
+{{ $ratio := default "16:9" (.Get "ratio") }}
+{{ $padding := "56.25%" }}
+{{ if eq $ratio "4:3" }}
+  {{ $padding = "75%" }}
+{{ else if eq $ratio "1:1" }}
+  {{ $padding = "100%" }}
+{{ end }}
+
+{{ $maxw := .Get "width" }}
+{{ $containerStyle := printf "position:relative;padding-bottom:%s;height:0;overflow:hidden;margin-bottom:1.25rem;" $padding }}
+{{ if $maxw }}
+  {{ $containerStyle = printf "%s max-width:%spx;margin:0 auto 1.25rem;" $containerStyle $maxw }}
+{{ end }}
+
+{{ $title := default (printf "YouTube video %s" $id) (.Get "title") }}
+
+<div class="youtube-embed" style="{{ $containerStyle }}">
+  <iframe
+    src="{{ printf "%s%s?%s" $base $id $query }}"
+    title="{{ $title }}"
+    loading="lazy"
+    style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>
+</div>
